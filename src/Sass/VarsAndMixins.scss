@@ -1,0 +1,25 @@
+$first-font: Helvetica, Arial, sans-serif;
+$second-font: 'Spectral', serif, georgia;
+
+// colors
+
+$second-color: #fb1;
+$black-color: #333;
+$error-color: #f31;
+
+// media
+
+@mixin media($width) {
+  @if $width == mobile {
+    @media only screen and (max-width: 480px){
+      @content;
+    }
+  }
+
+  @else if $width == tablet {
+    @media only screen and (max-width: 900px){
+      @content;
+    }
+  }
+}
+

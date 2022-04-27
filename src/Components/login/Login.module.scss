@@ -1,0 +1,29 @@
+@import '../../Sass/VarsAndMixins.scss';
+
+.login {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 110vh;
+  gap: 2rem;
+
+  &::before {
+    background: url('../../Assets/login.jpg') no-repeat center center;
+    background-size: cover;
+    content: '';
+    display: block;
+    height: 100;
+  }
+
+  @include media(mobile) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10rem;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+
