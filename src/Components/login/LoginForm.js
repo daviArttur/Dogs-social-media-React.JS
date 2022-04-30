@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from '../tagComponents/Button';
 import Error from '../helper/Error';
@@ -6,7 +5,7 @@ import Input from '../tagComponents/Input';
 import Label from '../tagComponents/Label';
 import styles from '../../App.module.scss';
 import stylesButton from '../tagComponents/Button.module.scss'
-import stylesForm from './Form.module.scss'
+import stylesForm from './LoginForm.module.scss'
 import useForm from '../../Hooks/useForm';
 import { TOKEN_POST } from '../../api';
 import { UserContext } from '../../UserContext';
@@ -14,8 +13,8 @@ import { Link } from 'react-router-dom';
 import useFetch from '../../Hooks/useFecth';
 
 
-const Form = () => {
-  const { callUser,  verifyToken } = React.useContext(UserContext);
+const LoginForm = () => {
+  const { callUser } = React.useContext(UserContext);
   const username = useForm('default');
   const password = useForm('default');
 
@@ -39,15 +38,6 @@ const Form = () => {
     }
   }
 
-  React.useLayoutEffect(() => {
-    const token = window.localStorage.getItem('token');
-    if (token) {
-      if (verifyToken()) {
-        callUser(token);
-      }
-    } 
-  }, [verifyToken, callUser]);
- 
   return (
     <div  style={{maxWidth: '480px'}}>
       <section className={styles.form}>
@@ -85,4 +75,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default LoginForm;

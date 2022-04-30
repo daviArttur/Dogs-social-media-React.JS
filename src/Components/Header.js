@@ -5,7 +5,7 @@ import { UserContext } from '../UserContext';
 import styles from './Header.module.scss';
 
 const Header = () => {
-  const { data, userLogout } = React.useContext(UserContext);
+  const { data } = React.useContext(UserContext);
 
   return (
     <header className={styles.header}>
@@ -13,17 +13,19 @@ const Header = () => {
         <Link to="/">
           <Dogs />
         </Link>
-        
+
         <section className={styles.navLinks}>
-        {data ? (
+          {data ? (
             <>
-              <Link to="account"> Minha conta </Link>
-              <button onClick={userLogout}>Sair</button>
+              <p>{ data.nome }</p>
             </>
-            ) : (
-              <Link to="/login"> Login / Criar </Link>
-            )}
-            <Link to={data ? "/acount" : "/login"} className={styles.login}></Link>
+          ) : (
+            <Link to="/login"> Login / Criar </Link>
+          )}
+          <Link
+            to={data ? '/mypage' : '/login'}
+            className={styles.login}
+          ></Link>
         </section>
       </nav>
     </header>

@@ -4,8 +4,11 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedAccess = ({ children }) => {
   const { login } = React.useContext(UserContext);
-
-  return login ? children : <Navigate to="/login" />;
+  if (login === false) {
+    return <Navigate to="/login" />
+  } else {
+    return children
+  }
 };
 
 export default ProtectedAccess;
