@@ -31,7 +31,7 @@ const Cadastry = () => {
       const { url, options } = USER_POST(values);
       const { response } = await request(url, options);
       if (response.ok) {
-        navigate('/login');
+        navigate('login');
       }
     }
   }

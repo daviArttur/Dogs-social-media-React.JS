@@ -21,15 +21,6 @@ const Form = () => {
 
   const { loading, error, request } = useFetch();
 
-  React.useEffect(() => {
-    const token = window.localStorage.getItem('token');
-    if (token) {
-      if (verifyToken()) {
-        callUser(token);
-      }
-    } 
-  }, [verifyToken, callUser]);
-
   async function handleSubmit() {
 
     const types = username.validate() && password.validate();
@@ -47,6 +38,15 @@ const Form = () => {
       callUser(json.token)
     }
   }
+
+  React.useLayoutEffect(() => {
+    const token = window.localStorage.getItem('token');
+    if (token) {
+      if (verifyToken()) {
+        callUser(token);
+      }
+    } 
+  }, [verifyToken, callUser]);
  
   return (
     <div  style={{maxWidth: '480px'}}>
