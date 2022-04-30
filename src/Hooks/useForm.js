@@ -11,28 +11,29 @@ const useForm = (type) => {
       message: 'Preencha um email válido',
     },
     default: {
-      regex: /./
-    }
+      regex: /./,
+    },
   };
 
   function validate(value) {
     if (type === false) return true;
+
     if (value.length === 0) {
       setError('Preencha um valor');
-      return false
-    } else if (types[type] && types[type].regex.test(value)){
-      setError(null)
-      return true
-    } else  {
-      setError('Formato inválido')
-      return false
+      return false;
+    } else if (types[type] && types[type].regex.test(value)) {
+      setError(null);
+      return true;
+    } else {
+      setError('Formato inválido');
+      return false;
     }
   }
 
-  function onChange({ target }) {  
-      setError(null)
-      error && validate(value)
-      setValue(target.value);
+  function onChange({ target }) {
+    setError(null);
+    error && validate(value);
+    setValue(target.value);
   }
 
   return {

@@ -21,7 +21,7 @@ const useFetch = () => {
       json.current = null;
       setError(err.message);
 
-    } finally {
+    } finally { 
       setData(json);
       setLoading(false);
       return { response: response.current, json: json.current };
