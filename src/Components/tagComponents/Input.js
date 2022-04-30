@@ -21,7 +21,7 @@ const Input = ({type, id, value, onChange, onBlur, error}) => {
 Input.propTypes = {
   type: PropTypes.string,
   id: PropTypes.string,
-  functionChange: PropTypes.func,
+  onChange: PropTypes.func,
 }
 
 
