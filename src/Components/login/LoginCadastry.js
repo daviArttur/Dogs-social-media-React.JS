@@ -24,14 +24,13 @@ const Cadastry = () => {
   };
 
   async function handleSubmit() {
-    const types =
-      username.validate() && email.validate() && password.validate();
+    const types = username.validate() && email.validate() && password.validate();
     console.log(values);
     if (types) {
       const { url, options } = USER_POST(values);
       const { response } = await request(url, options);
       if (response.ok) {
-        navigate('login');
+        navigate('/login');
       }
     }
   }
@@ -52,7 +51,7 @@ const Cadastry = () => {
           <Label type="password">Senha</Label>
           <Input type="password" id="password" {...password} />
 
-          <Error error={error}>{error}</Error>
+          <Error error={error}>Dados Inválidos</Error>
 
           <Button
             style={{ marginTop: '1rem' }}

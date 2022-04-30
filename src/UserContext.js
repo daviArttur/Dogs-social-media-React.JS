@@ -19,47 +19,47 @@ export const UserStore = ({ children }) => {
     navigate('/login');
   }, [navigate]);
 
-  const callUser = React.useCallback(
-    async function (token) {
-      const { url, options } = USER_GET(token);
-      const response = await fetch(url, options);
-      const json = await response.json();
-      setData(json);
-      setLogin(true);
-      navigate('/mypage');
-    },
-    [navigate],
-  );
+  const callUser = async function (token) {
+    const { url, options } = USER_GET(token);
+    const response = await fetch(url, options);
+    const json = await response.json();
+    setData(json);
+    setLogin(true);
+  };
 
-  const verifyToken = React.useCallback(
-    async function () {
+  React.useEffect(() => {
+    async function autoLogin() {
       const token = window.localStorage.getItem('token');
+
       if (token) {
-        const { url, options } = TOKEN_VALIDATE_POST(token);
-        const response = await fetch(url, options);
+
         try {
           setError(null);
           setLoading(true);
+          const { url, options } = TOKEN_VALIDATE_POST(token);
+          const response = await fetch(url, options);
           if (!response.ok) throw new Error('Token inválido');
-          return true;
+          await callUser(token);
+
         } catch (err) {
-          setError('Token inválido');
           userLogout();
-          return false;
+          
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false);
       }
-    },
-    [userLogout],
-  );
+    }
+    autoLogin();
+  }, [userLogout])
+
 
   return (
     <UserContext.Provider
       value={{
         userLogout,
         callUser,
-        verifyToken,
         setData,
         data,
         login,
