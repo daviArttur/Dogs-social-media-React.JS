@@ -17,7 +17,7 @@ const LoginForm = () => {
   const { callUser } = React.useContext(UserContext);
   const username = useForm('default');
   const password = useForm('default');
-
+  
   const { loading, error, request } = useFetch();
 
   async function handleSubmit() {
@@ -46,13 +46,13 @@ const LoginForm = () => {
 
         <form className={styles.animeLeft}>
 
-          <Label type="email">Usuário</Label>
+          <Label forType="email">Usuário</Label>
           <Input type="email" id="email" {...username} />
 
-          <Label type="password">Senha</Label>
+          <Label forType="password">Senha</Label>
           <Input type="password" id="password" {...password} />
 
-          <Button style={{marginTop: '1rem'}}paramOnClick={handleSubmit} loading={loading}>
+          <Button style={{marginTop: '1rem'}} paramOnClick={handleSubmit} loading={loading}>
             {loading ? 'Carregando...' : 'Entrar'}
           </Button>
 

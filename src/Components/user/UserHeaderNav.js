@@ -12,7 +12,7 @@ const UserHeaderNav = () => {
   const media = useMedia('(max-width: 40rem)');
   const [openMenu, setOpenMenu] = React.useState(false)
   const { userLogout } = React.useContext(UserContext);
-  const {pathname} = useLocation()
+  const { pathname } = useLocation()
   
   React.useEffect(() => {
     setOpenMenu(false)

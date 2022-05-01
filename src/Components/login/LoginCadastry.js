@@ -25,7 +25,6 @@ const Cadastry = () => {
 
   async function handleSubmit() {
     const types = username.validate() && email.validate() && password.validate();
-    console.log(values);
     if (types) {
       const { url, options } = USER_POST(values);
       const { response } = await request(url, options);
@@ -42,13 +41,13 @@ const Cadastry = () => {
 
         <form className={styles.animeLeft}>
           
-          <Label type="text">Usuário</Label>
+          <Label forType="text">Usuário</Label>
           <Input type="text" id="text" {...username} />
 
-          <Label type="email">Email</Label>
+          <Label forType="email">Email</Label>
           <Input type="email" id="email" {...email} />
 
-          <Label type="password">Senha</Label>
+          <Label forType="password">Senha</Label>
           <Input type="password" id="password" {...password} />
 
           <Error error={error}>Dados Inválidos</Error>

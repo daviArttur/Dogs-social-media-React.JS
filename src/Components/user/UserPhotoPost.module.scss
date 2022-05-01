@@ -1,0 +1,19 @@
+.form {
+  width: 90%;
+}
+
+.inputImg {
+  margin: 1rem 0;
+}
+
+.preview {
+  background-size: contain;
+  object-fit: cover;
+  height: 20rem;
+  width: 20rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

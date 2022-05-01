@@ -3,7 +3,7 @@ import React from 'react';
 const useForm = (type) => {
   const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(null);
-
+  
   const types = {
     email: {
       regex:
@@ -12,6 +12,7 @@ const useForm = (type) => {
     },
     default: {
       regex: /./,
+      message: 'Formato inválido'
     },
   };
 
@@ -25,12 +26,13 @@ const useForm = (type) => {
       setError(null);
       return true;
     } else {
-      setError('Formato inválido');
+      setError(types[type].message);
       return false;
     }
   }
 
   function onChange({ target }) {
+    console.log(value)
     setError(null);
     error && validate(value);
     setValue(target.value);

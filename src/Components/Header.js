@@ -17,7 +17,7 @@ const Header = () => {
         <section className={styles.navLinks}>
           {data ? (
             <>
-              <p>{ data.nome }</p>
+              <p>{ data ? data.nome : 'Login / Criar'}</p>
             </>
           ) : (
             <Link to="/login"> Login / Criar </Link>
