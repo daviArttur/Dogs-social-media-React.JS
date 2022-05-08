@@ -8,7 +8,7 @@ const FeedPhotosItem = ({ photo, setPhotoSelect }) => {
       className={styles.img}
       onClick={() => setPhotoSelect(photo.id)}
     >
-      <img src={photo.src} alt="Foto de um cachorro" />
+      <img src={photo.src} className={styles} alt="Foto de um cachorro" />
       <span className={styles.acessos}> {photo.acessos}</span>
     </li>
   );

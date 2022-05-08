@@ -8,7 +8,7 @@ import styles from './FeedPhotos.module.scss';
 
 const FeedPhotos = ({ setPhotoSelect }) => {
   const [photos, setPhotos] = React.useState(null);
-  const { data, loading, error, request } = useFetch();
+  const { loading, error, request } = useFetch();
 
   React.useEffect(() => {
     async function getPhotos() {
