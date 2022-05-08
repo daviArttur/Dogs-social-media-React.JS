@@ -7,6 +7,7 @@ import Error from '../helper/Error';
 import { PHOTO_POST } from '../../api';
 import useFetch from '../../Hooks/useFecth';
 import styles from './UserPhotoPost.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const UserPhotoPost = () => {
   const name = useForm('default');
@@ -15,13 +16,14 @@ const UserPhotoPost = () => {
   const [img, setImg] = React.useState({});
 
   const { loading, error, request } = useFetch();
+  const navigate = useNavigate();
 
   function handleImgChange({ target }) {
     setImg({
       preview: URL.createObjectURL(target.files[0]),
       raw: target.files[0],
     });
-    console.log(img.preview)
+    console.log(img.preview);
   }
 
   async function handleSubmit() {
@@ -36,7 +38,9 @@ const UserPhotoPost = () => {
       formData.append('idade', age.value);
 
       const { url, options } = PHOTO_POST(formData, token);
-      const { response, json } = await request(url, options);
+      const { response } = await request(url, options);
+
+      if (response.ok) navigate('/mypage');
     }
   }
 
@@ -68,10 +72,12 @@ const UserPhotoPost = () => {
       </form>
 
       <div>
-        {img && 
-        <div 
-          className={styles.preview}
-          style={{backgroundImage : `url(${img.preview})`}}></div>}
+        {img && (
+          <div
+            className={styles.preview}
+            style={{ backgroundImage: `url(${img.preview})` }}
+          ></div>
+        )}
       </div>
     </section>
   );

@@ -45,30 +45,22 @@ const LoginForm = () => {
         <h1 className={styles.title}>Login</h1>
 
         <form className={styles.animeLeft}>
-
           <Label forType="email">Usuário</Label>
           <Input type="email" id="email" {...username} />
-
           <Label forType="password">Senha</Label>
           <Input type="password" id="password" {...password} />
-
           <Button style={{marginTop: '1rem'}} paramOnClick={handleSubmit} loading={loading}>
             {loading ? 'Carregando...' : 'Entrar'}
           </Button>
-
           <Error error={error}>{ error }</Error>
-
         </form>
       </section>
 
       <Link to="/login/lost" className={stylesForm.lost}>Perdeu a senha?</Link>
 
       <div className={stylesForm.cadastry}>
-
         <h2 className={stylesForm.subtitle}>Cadastre-se</h2>
-
         <p>Ainda não possui conta? Cadastre-se no site.</p>
-
         <Link className={stylesButton.button} to="/login/cadastry">Cadastro</Link>
       </div>   
     </div>

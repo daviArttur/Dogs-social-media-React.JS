@@ -15,7 +15,6 @@ const useFetch = () => {
       setLoading(true);
       response.current = await fetch(url, options);
       json.current = await response.current.json();
-      console.log(json.current)
       if (!response.current.ok) throw new Error(json.current.message);
 
     } catch (err) {
@@ -23,7 +22,7 @@ const useFetch = () => {
 
     } finally { 
 
-      setData(json);
+      setData(json.current);
       setLoading(false);
       return { response: response.current, json: json.current };
     }

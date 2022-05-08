@@ -23,3 +23,27 @@ $error-color: #f31;
   }
 }
 
+// title
+
+.title {
+  font-family: $second-font;
+  font-size: 3rem;
+  line-height: 1;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.title::after {
+  background: $second-color;
+  content: '';
+  border-radius: .2rem;
+  bottom: 5px;
+  left: -5px;
+  display: block;
+  height: 1.5rem;
+  position: absolute;
+  width: 1.5rem;
+  z-index: -1;
+}
+

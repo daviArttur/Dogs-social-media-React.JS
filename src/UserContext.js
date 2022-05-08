@@ -24,7 +24,7 @@ export const UserStore = ({ children }) => {
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json);
-    setLogin(true);
+    response.ok ? setLogin(true) : setLogin(false);
   };
 
   React.useEffect(() => {
@@ -32,7 +32,6 @@ export const UserStore = ({ children }) => {
       const token = window.localStorage.getItem('token');
 
       if (token) {
-
         try {
           setError(null);
           setLoading(true);
@@ -40,10 +39,8 @@ export const UserStore = ({ children }) => {
           const response = await fetch(url, options);
           if (!response.ok) throw new Error('Token inválido');
           await callUser(token);
-
         } catch (err) {
           userLogout();
-          
         } finally {
           setLoading(false);
         }
@@ -52,8 +49,7 @@ export const UserStore = ({ children }) => {
       }
     }
     autoLogin();
-  }, [userLogout])
-
+  }, [userLogout]);
 
   return (
     <UserContext.Provider
