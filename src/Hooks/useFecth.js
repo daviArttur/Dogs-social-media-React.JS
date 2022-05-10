@@ -16,7 +16,6 @@ const useFetch = () => {
       response.current = await fetch(url, options);
       json.current = await response.current.json();
       if (!response.current.ok) throw new Error(json.current.message);
-
     } catch (err) {
       setError(err.message);
 

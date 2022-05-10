@@ -1,0 +1,37 @@
+import React from 'react';
+import styles from './PhotoComment.module.scss';
+import PhotoCommentAuthorization from './PhotoCommentAuthorization';
+
+const PhotoComment = ({ data }) => {
+  const [commentReload, setCommentReload] = React.useState(() => data.comments);
+
+
+  React.useEffect(() => {
+    console.log(data)
+  }, [commentReload, data])
+
+  return (
+    <>
+      {commentReload.map((options) => {
+        return (
+          <>
+            <li key={options.comment_ID} className={styles.comment}>
+              <p>
+                {' '}
+                <a href="qwe">{options.comment_author}: </a>
+                {options.comment_content}
+              </p>
+            </li>
+          </>
+        );
+      })}
+
+      <PhotoCommentAuthorization
+        data={data}
+        setCommentReload={setCommentReload}
+      />
+    </>
+  );
+};
+
+export default PhotoComment;

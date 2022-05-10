@@ -1,0 +1,16 @@
+.containerComment {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow-y: auto;
+}
+
+.comment {
+  align-items: flex-start;
+  display: flex;
+  margin-bottom: .5rem;
+  
+  a:first-of-type {
+    color: #333;
+    font-weight: bold;
+  }
+}

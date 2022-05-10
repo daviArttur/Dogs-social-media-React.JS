@@ -5,23 +5,21 @@ import styles from './FeedModal.module.scss';
 import Loading from '.././helper/Loading';
 import { ReactComponent as Views } from '../../Assets/visualizacao-black.svg';
 import { Link } from 'react-router-dom';
+import PhotoComment from '../photo/PhotoComment';
 
 const FeedModal = ({ photoSelect, setPhotoSelect }) => {
-  const { data, error, loading, request } = useFetch();
-
-  data && console.log(data);
+  const { data, loading, request } = useFetch();
 
   React.useEffect(() => {
     async function callPhoto() {
       const { url, options } = PHOTO_GET(photoSelect);
-      const { response, json } = await request(url, options);
-      console.log(response, json);
+      await request(url, options);
     }
     callPhoto();
   }, [request, photoSelect]);
 
   function handleOutsideClick(event) {
-    if (event.target === event.currentTarget) setPhotoSelect(null)
+    if (event.target === event.currentTarget) setPhotoSelect(null);
   }
 
   return (
@@ -45,23 +43,19 @@ const FeedModal = ({ photoSelect, setPhotoSelect }) => {
                   <div className={styles.nameDog}>
                     <h2 className={styles.title}> {data.photo.title} </h2>
                   </div>
-                  
+
                   <ul className={styles.bio}>
                     <li>{data.photo.peso} kg</li>
                     <li>{data.photo.idade} anos</li>
                   </ul>
-                </div>
-              </section>
 
-              <section className={styles.containerComment}>
-                {data.comments.map((options) => {
-                  return (
-                    <div key={options.comment_post_ID} className={styles.comment}>
-                      <p>{ options.comment_author }</p>:
-                      <p>{ options.comment_content }</p>
-                    </div>
-                  );
-                })}
+                  <section className={styles.containerComment}>
+                    <ul>
+                      <PhotoComment data={data} />
+                    </ul>
+                  </section>
+                  
+                </div>
               </section>
             </div>
           </section>

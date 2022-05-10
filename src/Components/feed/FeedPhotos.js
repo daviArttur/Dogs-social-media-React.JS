@@ -24,6 +24,7 @@ const FeedPhotos = ({ setPhotoSelect }) => {
       {photos &&
         photos.map((item) => (
           <FeedPhotosItem
+            key={item.id}
             className={styles.img}
             photo={item}
             setPhotoSelect={setPhotoSelect}

@@ -115,25 +115,10 @@
   display: flex;
   flex-flow: column nowrap;
   padding: 2rem 2rem 0;
+  position: relative;
   width: 35%;
 }
 
-.containerComment {
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.comment {
-  display: flex;
-  margin-bottom: .5rem;
-
-  p:first-of-type {
-    color: #333;
-    font-weight: bold;
-  }
-
-  
-}
 
 @keyframes scaleUp {
   from {
