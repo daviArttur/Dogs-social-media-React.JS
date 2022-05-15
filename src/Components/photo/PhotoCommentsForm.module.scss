@@ -1,5 +1,20 @@
-textarea {
- width: 80%;
+@import '../../Sass/VarsAndMixins.scss';
+
+.textarea {
+  background-color: #eee;
+  border: 1px solid #eee;
+  border-radius: .2rem;
+  display: block;
+  font-size: 1rem;
+  font-family: $first-font;
+  outline: none;
+  padding: .5rem;
+  transition: .2s;
+  width: 100%;
+
+  &:hover {
+    border-color: #fb1;
+  }
 }
 
 .button {
@@ -8,10 +23,20 @@ textarea {
 
 .container {
   align-self: flex-end;
+  align-items: center;
   bottom: 1rem;
   justify-self: flex-end;
-  align-items: center;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
-  position: absolute;
+  padding: 1rem;
+
+  button {
+    background-color: transparent;
+    border: none;
+
+    &:first-child :hover {
+      fill: bisque;
+    }
+  }
 }

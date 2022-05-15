@@ -23,7 +23,6 @@ const UserPhotoPost = () => {
       preview: URL.createObjectURL(target.files[0]),
       raw: target.files[0],
     });
-    console.log(img.preview);
   }
 
   async function handleSubmit() {
@@ -39,7 +38,6 @@ const UserPhotoPost = () => {
 
       const { url, options } = PHOTO_POST(formData, token);
       const { response } = await request(url, options);
-
       if (response.ok) navigate('/mypage');
     }
   }

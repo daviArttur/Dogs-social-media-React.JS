@@ -1,31 +1,30 @@
-import React from 'react';
-import useFetch from '../../Hooks/useFecth';
-import { PHOTO_GET } from '../../api';
-import styles from './FeedModal.module.scss';
-import Loading from '.././helper/Loading';
+import React from 'react'
+import styles from './PhotoContent.module.scss'
+import PhotoDelete from './PhotoDelete'
+import useFetch from '../../Hooks/useFecth'
+import { PHOTO_GET } from '../../api'
+import { Link } from 'react-router-dom'
+import Error from '../helper/Error'
+import PhotoComment from './PhotoComment'
 import { ReactComponent as Views } from '../../Assets/visualizacao-black.svg';
-import PhotoComment from '../photo/PhotoComment';
-import PhotoDelete from '../photo/PhotoDelete';
-import { Link } from 'react-router-dom';
+import Loading from '../helper/Loading'
 
-const FeedModal = ({ photoSelect, setPhotoSelect }) => {
-  const { data, loading, request } = useFetch();
+
+const PhotoContent = ({id, single}) => {
+  const { data, error,  loading, request } = useFetch();
   React.useEffect(() => {
     async function callPhoto() {
-      const { url, options } = PHOTO_GET(photoSelect);
+      const { url, options } = PHOTO_GET(id);
       await request(url, options);
     }
     callPhoto();
-  }, [request, photoSelect]);
+  }, [request, id]);
 
-  function handleOutsideClick(event) {
-    if (event.target === event.currentTarget) setPhotoSelect(null);
-  }
 
-  if (loading) return <Loading />;
-  if (data)
-    return (
-      <div className={styles.container} onClick={handleOutsideClick}>
+  if (loading) return <Loading />
+  if (error) return <Error />
+  if (data) return (
+    <div className={`${styles.container} ${single ? styles.single : ''}`}>
         <section className={styles.containerData}>
           <img src={data.photo.src} alt="" className={styles.img} />
 
@@ -51,16 +50,16 @@ const FeedModal = ({ photoSelect, setPhotoSelect }) => {
                   <li>{data.photo.peso} kg</li>
                   <li>{data.photo.idade} anos</li>
                 </ul>
+
+                <section className={styles.containerComment}>
+                  <PhotoComment data={data} />
+                </section>
               </div>
-            </section>
-            
-            <section className={styles.containerComment}>
-              <PhotoComment data={data} />
             </section>
           </div>
         </section>
       </div>
-    );
-};
+  )
+}
 
-export default FeedModal;
+export default PhotoContent

@@ -19,7 +19,6 @@ const PhotoCommentsForm = ({ photoAndComment, token, setCommentReload }) => {
       token,
     );
     const { response, json } = await request(url, options);
-    console.log(json);
     if (response.ok) {
       setCommentReload((lastComments) => [...lastComments, json]);
     }

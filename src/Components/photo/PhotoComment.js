@@ -5,16 +5,11 @@ import PhotoCommentAuthorization from './PhotoCommentAuthorization';
 const PhotoComment = ({ data }) => {
   const [commentReload, setCommentReload] = React.useState(() => data.comments);
 
-
-  React.useEffect(() => {
-    console.log(data)
-  }, [commentReload, data])
-
   return (
     <>
-      {commentReload.map((options) => {
-        return (
-          <>
+      <ul className={styles.ul}>
+        {commentReload.map((options) => {
+          return (
             <li key={options.comment_ID} className={styles.comment}>
               <p>
                 {' '}
@@ -22,9 +17,9 @@ const PhotoComment = ({ data }) => {
                 {options.comment_content}
               </p>
             </li>
-          </>
-        );
-      })}
+          );
+        })}
+      </ul>
 
       <PhotoCommentAuthorization
         data={data}

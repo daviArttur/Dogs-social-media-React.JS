@@ -32,7 +32,6 @@ const useForm = (type) => {
   }
 
   function onChange({ target }) {
-    console.log(value)
     setError(null);
     error && validate(value);
     setValue(target.value);

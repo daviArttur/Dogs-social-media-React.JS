@@ -31,9 +31,8 @@ const LoginForm = () => {
     
     if (types) {
       const { url, options } = TOKEN_POST( values );
-      const {response, json} = await request(url, options);
+      const { json } = await request(url, options);
       window.localStorage.setItem('token', json.token)
-      console.log(response, json.token);
       callUser(json.token)
     }
   }

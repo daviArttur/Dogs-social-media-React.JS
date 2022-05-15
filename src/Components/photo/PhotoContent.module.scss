@@ -11,10 +11,13 @@
   top: 0;
   width: 100vw;
   z-index: 100;
+}
 
-  @include media(mobile) {
-    overflow-y: auto;
-  }
+.single.container {
+  background-color: #fff;
+  height: 100%;
+  margin-top: 40px;
+  position: static;
 }
 
 .containerData {
@@ -35,9 +38,21 @@
 
   @include media(mobile) {
     flex-flow: column nowrap;
-    height: auto;
+    height: 36rem;
+    overflow: hidden;
     width: 56rem;
   }
+}
+
+.single .containerData {
+  align-items: center;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+  max-width: 50rem;
+  overflow: auto;
+  padding: 0 1rem;
+  width: 100%;
 }
 
 .containerInfo {
@@ -69,6 +84,10 @@
   }
 }
 
+.single .img {
+  width: 100%;
+}
+
 .userAndViews {
   display: grid;
   grid-template-columns: 1fr;
@@ -89,12 +108,20 @@
   width: 100%;
 }
 
+.single .authorAndViews {
+  padding: 1rem 0;
+}
+
 .nameDog {
   align-items: flex-end;
   display: flex;
   justify-content: left;
   margin: .5rem;
   padding: 0 2rem;
+}
+
+.single .nameDog {
+  padding-left: 0;
 }
 
 .title {
@@ -114,6 +141,10 @@
   }
 }
 
+.single .bio {
+  padding-left: 0;
+}
+
 .containerFlex {
   display: flex;
   flex-flow: column nowrap;
@@ -127,6 +158,10 @@
   @include media(mobile) {
     flex-flow: column nowrap;
   }
+}
+
+.single .containerFlex {
+  width: 100%;
 }
 
 
