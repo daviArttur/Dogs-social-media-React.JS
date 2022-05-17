@@ -10,6 +10,7 @@ import { UserStore } from './UserContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.module.scss';
 import UserFeed from './Components/user/UserFeed';
+import NotFound from './Components/helper/NotFound';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/user/:user" element={<UserFeed />} />
             <Route path="/photo/:id" element={<Photo />} />
             <Route path="/login/*" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </UserStore>

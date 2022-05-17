@@ -2,11 +2,11 @@ import React from 'react';
 import styles from'./Button.module.scss';
 import PropTypes from 'prop-types';
 
-const Button = ({ paramOnClick, loading, children, style }) => {
+const Button = ({ paramOnClick, loading, children, style, disabled }) => {
 
   return (
     <button
-      disabled={loading && true}
+      disabled={loading || disabled}
       className={styles.button}
       type='button'
       onClick={paramOnClick}

@@ -10,6 +10,8 @@ const FeedPhotos = ({ setPhotoSelect, page, total, user, setInfinite }) => {
   const [ photos, setPhotos ] = React.useState(null);
   const { data, loading, error, request } = useFetch();
 
+  console.log(user)
+
   React.useEffect(() => {
     async function getPhotos() {
       const { url, endpoint } = PHOTOS_GET({

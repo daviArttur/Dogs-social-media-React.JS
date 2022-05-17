@@ -11,7 +11,6 @@ const PhotoDelete = ({ id, author }) => {
   const { request } = useFetch();
 
   if (id && author) {
-    const verify = author === data.username;
     const token = window.localStorage.getItem('token');
     const navigateToPerfil = `https://dogs.origamid.dev/perfil/${author}`
     async function handleClick() {
@@ -29,7 +28,7 @@ const PhotoDelete = ({ id, author }) => {
     }
 
     return (
-      verify && data ? (
+      data && author === data.username ? (
         <button type="button" onClick={handleClick} className={styles.button}>
           Deletar
         </button>
