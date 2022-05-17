@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}
+
+.AppBody {
+  flex: 1;
+}
+
 body{
   margin: 0;
   color: $black-color;
@@ -102,4 +112,6 @@ input {
   width: 1.5rem;
   z-index: -1;
 }
+
+
 
