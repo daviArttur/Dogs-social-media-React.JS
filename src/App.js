@@ -4,7 +4,7 @@ import Home from './Components/Home';
 import Footer from './Components/Footer';
 import Login from './Components/login/Login';
 import User from './Components/user/User';
-import styles from './App.module.scss'
+import styles from './App.module.scss';
 import Photo from './Components/photo/Photo';
 import ProtectedAccess from './Components/helper/ProtectedAccess';
 import { UserStore } from './UserContext';
@@ -21,6 +21,7 @@ function App() {
           <Header />
           <main className={styles.AppBody}>
             <Routes>
+              <Route path="/*" element={<NotFound />} />
               <Route path="/" element={<Home />} />
               <Route
                 path="/mypage/*"
@@ -33,7 +34,6 @@ function App() {
               <Route path="/user/:user" element={<UserFeed />} />
               <Route path="/photo/:id" element={<Photo />} />
               <Route path="/login/*" element={<Login />} />
-              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
 

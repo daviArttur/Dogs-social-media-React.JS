@@ -10,13 +10,11 @@ import { UserContext } from '../../UserContext';
 
 const User = () => {
 
-  const  { data } = React.useContext(UserContext);
-
   return (
     <section className={stylesGlobal.container}>
       <UserHeader />
       <Routes>
-        {data && <Route path="/" element={<Feed user={data.username}/>} />}
+        <Route path="/feed" element={<Feed />} />
         <Route path="/post" element={<UserPhotoPost />} />
         <Route path="statistics" element={<UserStats />} />
         <Route path="*" element={<NotFound />} />

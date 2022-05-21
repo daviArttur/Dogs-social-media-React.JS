@@ -38,7 +38,7 @@ const UserPhotoPost = () => {
 
       const { url, options } = PHOTO_POST(formData, token);
       const { response } = await request(url, options);
-      if (response.ok) navigate('/mypage');
+      if (response.ok) navigate('/mypage/feed');
     }
   }
 

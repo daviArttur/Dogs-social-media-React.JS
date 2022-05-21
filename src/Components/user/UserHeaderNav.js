@@ -25,7 +25,7 @@ const UserHeaderNav = () => {
     <>
       {media && <button className={`${styles.button} ${openMenu && styles.active}` } onClick={handleChangeMenu}></button>}   
       <nav className={`${media ? styles.mobile : styles.nav} ${openMenu && styles.visible}`}> 
-        <NavLink to="/mypage" end> 
+        <NavLink to="/mypage/feed" end> 
           <Myphoto />
           {media && 'Minhas Fotos'} 
         </NavLink>

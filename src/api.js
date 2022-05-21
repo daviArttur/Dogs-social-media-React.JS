@@ -106,7 +106,7 @@ export function PHOTO_DELETE(id, token) {
 }
 
 export function PASSWORD_LOST(body) {
-  console.log(body)
+
   return {
     url: `${API_URL}/api/password/lost`,
     options: {

@@ -23,7 +23,7 @@ const Header = () => {
             <Link to="/login"> Login / Criar </Link>
           )}
           <Link
-            to={data ? '/mypage' : '/login'}
+            to={data ? '/mypage/feed' : '/login'}
             className={styles.login}
           ></Link>
         </section>

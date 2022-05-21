@@ -10,7 +10,7 @@ import NotFound from '../helper/NotFound';
 
 const Login = () => {
   const { login } = React.useContext(UserContext);
-  if (login === true) return <Navigate to="/mypage" />
+  if (login === true) return <Navigate to="/mypage/feed" />
   
   return (
     <section className={styles.login}>

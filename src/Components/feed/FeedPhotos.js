@@ -10,8 +10,6 @@ const FeedPhotos = ({ setPhotoSelect, page, total, user, setInfinite }) => {
   const [ photos, setPhotos ] = React.useState(null);
   const { data, loading, error, request } = useFetch();
 
-  console.log(user)
-
   React.useEffect(() => {
     async function getPhotos() {
       const { url, endpoint } = PHOTOS_GET({
@@ -30,7 +28,7 @@ const FeedPhotos = ({ setPhotoSelect, page, total, user, setInfinite }) => {
   }, [request, page, total, user, setInfinite]);
 
 
-  if (loading) return <Loading />
+  if (loading && page === 1) return <Loading />
   if (error) return <Error />
   if (data) return (
     <section className={styles.container}>
