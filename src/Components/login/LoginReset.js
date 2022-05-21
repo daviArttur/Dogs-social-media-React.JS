@@ -7,7 +7,8 @@ import { PASSWORD_RESET } from '../../api';
 import Error from '../helper/Error';
 import { useNavigate } from 'react-router-dom';
 import Label from '../tagComponents/Label';
-import styles from '../../App.module.scss';
+import stylesGlobal from '../../App.module.scss';
+import styles from './LoginReset.module.scss'
 
 const LoginReset = () => {
   const [login, setLogin] = React.useState('');
@@ -39,8 +40,8 @@ const LoginReset = () => {
   }
 
   return (
-    <div>
-      <h1 className={styles.title}>Resete a Senha</h1>
+    <section className={styles.container}>
+      <h1 className={stylesGlobal.title}>Resete a Senha</h1>
       <form>
         <Label forType={'password'}>Nova Senha</Label>
         <Input type="password" name="password" id="password" {...password} />
@@ -51,7 +52,7 @@ const LoginReset = () => {
         )}
       </form>
       <Error error={error} />
-    </div>
+    </section>
   );
 };
 export default LoginReset;

@@ -5,7 +5,9 @@ import Button from '../tagComponents/Button';
 import Label from '../tagComponents/Label';
 import useForm from '../../Hooks/useForm';
 import useFetch from '../../Hooks/useFecth';
+import styles from './LoginLost.module.scss';
 import { PASSWORD_LOST } from '../../api';
+
 const LoginLost = () => {
   const login = useForm('default');
 
@@ -22,23 +24,22 @@ const LoginLost = () => {
   }
 
   const verify = login.value === '';
-  
+
   return (
-    <section style={{display: 'flex', flexFlow: 'column nowrap', justifyContent: 'center', marginBottom: '10vh', width: '30rem'}}>
+    <section className={styles.container}>
       <h1 className={stylesGlobal.title}>Perdeu a senha?</h1>
       {data ? (
-        <p style={{color: 'green'}}> {data}</p>
+        <p style={{ color: 'green' }}> {data}</p>
       ) : (
         <form>
-        <Label>Email / Usuário</Label>
-        <Input {...login} />
-        
-        <Button paramOnClick={sendEmail} loading={loading} disabled={verify}>
-          Enviar Email
-        </Button>
-      </form>
+          <Label>Email / Usuário</Label>
+          <Input className={styles.input} {...login} />
+
+          <Button paramOnClick={sendEmail} loading={loading} disabled={verify}>
+            Enviar Email
+          </Button>
+        </form>
       )}
-      
     </section>
   );
 };

@@ -1,7 +1,6 @@
 @import '../../Sass/VarsAndMixins.scss';
 
 .login {
-  
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 110vh;
@@ -12,17 +11,30 @@
     background-size: cover;
     content: '';
     display: block;
-    height: 100;
+    height: 100%;
   }
 
   @include media(mobile) {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10rem;
+    min-height: 100vh;
 
     &::before {
       display: none;
     }
+  }
+}
+
+@media only screen and (max-width: 640px)  {
+  .login {
+    grid-template-columns: 1fr;
+    padding-left: 1rem;
+    width: 100%;
+  }
+
+  .login::before {
+    display: none;
   }
 }
 
