@@ -40,7 +40,7 @@ const LoginLost = () => {
           </Button>
         </form>
       )}
-    </section>
+     </section>
   );
 };
 
