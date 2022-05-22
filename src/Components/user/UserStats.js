@@ -1,56 +1,65 @@
-import React from 'react'
-import { VictoryPie, VictoryChart, VictoryBar } from 'victory'
+import React from 'react';
+import { VictoryPie, VictoryChart, VictoryBar } from 'victory';
 import { PHOTOS_GET } from '../../api';
 import useFetch from '../../Hooks/useFecth';
 import { UserContext } from '../../UserContext';
-import Loading from '.././helper/Loading'
+import Loading from '.././helper/Loading';
+import styles from './UserStats.module.scss';
 
 const UserStats = ({ user }) => {
-  
-  const { loading, error, request } = useFetch();
-  const [ photos, setPhotos ] = React.useState(null)
+  const { data, loading, error, request } = useFetch();
+  const [photos, setPhotos] = React.useState(null);
+  const [views, setViews] = React.useState([0])
 
   React.useEffect(() => {
     async function getPhotos() {
       const { url, endpoint } = PHOTOS_GET({
         page: 0,
         total: 999,
-        user: 'cat',
+        user: user,
       });
       const { json } = await request(url, endpoint);
-      setPhotos(json.map((photo) => {
-        return {x: photo.title, y: Number(photo.acessos)}
-      }))
+
+      setPhotos(  
+        json.map((photo) => {
+          return { x: photo.title, y: Number(photo.acessos) };
+        }),
+      );
+      setViews(json.map(( {acessos}) => Number(acessos)).reduce((a, b) => a + b))
     }
-    getPhotos()
-  }, [request, user]);
+    getPhotos();
+  }, [request, user]); 
 
-  if (loading) return <Loading />
-  if (photos) return (
-    <div>
-      <VictoryChart height={400} width={400}
-          domainPadding={{ x: 50, y: [0, 20] }}
-          style={{fill: '#333'}}
-        >
-          <VictoryBar
-            
-            data={[
-              ...photos
-            ]}
-          />
-        </VictoryChart>
+  if (loading) return <Loading />;
+  if (photos)
+    return (
+      <div>
+        <section className={styles.views}>
+          <h2>Acessos: {views}</h2>
+        </section>
 
-        <VictoryPie 
-    style={{ labels: { fill: "#333" } }}
-    innerRadius={90}
-    labelRadius={160}
+        <div className={styles.container}>
+          <div className={styles.graph}>
+            <VictoryChart
+              height={400}
+              width={400}
+              domainPadding={{ x: 30, y: [20, 20] }}
+              style={{ fill: '#333' }}
+            >
+              <VictoryBar data={[...photos]} />
+            </VictoryChart>
+          </div>
 
-     data={[
-      ...photos
-    ]}/>
-    </div>
-    
-  )
-}
+          <div className={styles.graph}>
+            <VictoryPie
+              style={{ labels: { fill: '#333', fontSize: 14 } }}
+              padding={{ top: 20, bottom: 20, left: 80, right: 80 }}
+              data={[...photos]}
+            />
+          </div>
+        </div>
+      </div>
+    );
+};
 
-export default UserStats
+export default UserStats;
