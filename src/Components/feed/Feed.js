@@ -4,7 +4,7 @@ import FeedPhotos from './FeedPhotos';
 import styles from '../../App.module.scss';
 import { UserContext } from '../../UserContext';
 
-const Feed = () => {
+const Feed = ({ user }) => {
 
   const  { data } = React.useContext(UserContext);
   const [photoSelect, setPhotoSelect] = React.useState(null);
@@ -34,7 +34,7 @@ const Feed = () => {
     };
   }, [pages, infinite]);
 
-  if (data) return (
+  return (
     <section className={styles.container} style={{ marginTop: '1rem' }}>
       {photoSelect && (
         <FeedModal photoSelect={photoSelect} setPhotoSelect={setPhotoSelect} />
@@ -49,7 +49,7 @@ const Feed = () => {
             page={index}
             setInfinite={setInfinite}
             total={6}
-            user={data.username}
+            user={user}
           />
         );
       })}

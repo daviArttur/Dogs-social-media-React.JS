@@ -8,7 +8,7 @@ import styles from './FeedPhotos.module.scss';
 
 const FeedPhotos = ({ setPhotoSelect, page, total, user, setInfinite }) => {
   const [ photos, setPhotos ] = React.useState(null);
-  const { data, loading, error, request } = useFetch();
+  const { loading, error, request } = useFetch();
 
   React.useEffect(() => {
     async function getPhotos() {
@@ -18,6 +18,7 @@ const FeedPhotos = ({ setPhotoSelect, page, total, user, setInfinite }) => {
         user: user,
       });
       const { response, json } = await request(url, endpoint);
+      console.log(response, json)
 
       if (response && response.ok && json.length < total) {
         setInfinite(false)
@@ -30,7 +31,7 @@ const FeedPhotos = ({ setPhotoSelect, page, total, user, setInfinite }) => {
 
   if (loading && page === 1) return <Loading />
   if (error) return <Error />
-  if (data) return (
+  return (
     <section className={styles.container}>
       {photos &&
         photos.map((item) => (
