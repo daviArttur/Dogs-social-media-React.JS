@@ -2,7 +2,9 @@
 
 ## Nesse projeto aprendi os principais conceitos de uma aplicação React: (Hooks, React Rounter e estilização com CSS modules), como usar bibliotecas externas e novas funcionalidades do git.
 
-### O Front-end foi  desenvolvido por mim, o design e back-end foram feitos pela ORIGAMID...
+## Dentro do app temos diversas funções como cadastro de email, postagem de fotos e comentários, gráfico com insights e recuperação de senha
+
+### O Front-end foi desenvolvido por mim, o design e back-end foram feitos pela ORIGAMID...
 
 Para rodar o app na sua máquina: {\
   git init\
@@ -13,4 +15,4 @@ Para rodar o app na sua máquina: {\
   npm start\
 }
 
-Falta algumas correções na estilização e importações em geral, "vou corrigir mais para frente"
+Falta algumas correções na estilização e importações.
