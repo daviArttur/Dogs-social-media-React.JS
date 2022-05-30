@@ -33,8 +33,8 @@ const LoginReset = () => {
         key,
         password: password.value,
       });
-      const { response, json } = await request(url, options);
-      console.log(response, json);
+      const { response } = await request(url, options);
+
       if (response.ok) navigate('/login');
     }
   }

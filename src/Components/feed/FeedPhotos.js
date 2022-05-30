@@ -18,7 +18,7 @@ const FeedPhotos = ({ setPhotoSelect, page, total, user, setInfinite }) => {
         user: user,
       });
       const { response, json } = await request(url, endpoint);
-      console.log(response, json)
+      
 
       if (response && response.ok && json.length < total) {
         setInfinite(false)
