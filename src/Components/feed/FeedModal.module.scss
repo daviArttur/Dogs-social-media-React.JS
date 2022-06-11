@@ -129,6 +129,20 @@
   }
 }
 
+.containerComment {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+
+  ul {
+    height: 70%;
+  }
+
+  form {
+    height: 30%;
+  }
+}
+
 
 @keyframes scaleUp {
   from {
