@@ -36,6 +36,7 @@
   @include media(mobile) {
     flex-flow: column nowrap;
     height: auto;
+    margin: 0 1rem 0 1rem;
     width: 56rem;
   }
 }
