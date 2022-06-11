@@ -1,12 +1,20 @@
 import React from 'react';
+
+// Api
+import { PASSWORD_LOST } from '../../api';
+
+// Styles
 import stylesGlobal from '../../App.module.scss';
+import styles from './LoginLost.module.scss';
+
+// Components
 import Input from '../tagComponents/Input';
 import Button from '../tagComponents/Button';
 import Label from '../tagComponents/Label';
+
+// Hooks
 import useForm from '../../Hooks/useForm';
 import useFetch from '../../Hooks/useFecth';
-import styles from './LoginLost.module.scss';
-import { PASSWORD_LOST } from '../../api';
 
 const LoginLost = () => {
   const login = useForm('default');
@@ -40,7 +48,7 @@ const LoginLost = () => {
           </Button>
         </form>
       )}
-     </section>
+    </section>
   );
 };
 

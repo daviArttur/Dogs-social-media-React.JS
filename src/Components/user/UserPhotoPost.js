@@ -1,13 +1,25 @@
 import React from 'react';
+
+// Router
+import { useNavigate } from 'react-router-dom';
+
+// Components
 import Label from '../tagComponents/Label';
 import Input from '../tagComponents/Input';
 import Button from '../tagComponents/Button';
+
+// Hooks
 import useForm from '../../Hooks/useForm';
-import Error from '../helper/Error';
-import { PHOTO_POST } from '../../api';
 import useFetch from '../../Hooks/useFecth';
+
+// Helper
+import Error from '../helper/Error';
+
+// Api
+import { PHOTO_POST } from '../../api';
+
+// Styles
 import styles from './UserPhotoPost.module.scss';
-import { useNavigate } from 'react-router-dom';
 
 const UserPhotoPost = () => {
   const name = useForm('default');

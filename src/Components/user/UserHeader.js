@@ -1,7 +1,13 @@
 import React from 'react';
+
+//Components
 import UserHeaderNav from './UserHeaderNav';
+
+// Styles
 import styles from './UserHeader.module.scss';
 import stylesGlobal from '../../App.module.scss';
+
+// Router
 import { useLocation } from 'react-router-dom';
 
 const UserHeader = () => {
@@ -9,20 +15,19 @@ const UserHeader = () => {
   const location = useLocation();
 
   React.useEffect(() => {
-    setTitle(location.pathname)
-    const {pathname} = location;
+    setTitle(location.pathname);
+    const { pathname } = location;
 
-    switch(pathname) {
+    switch (pathname) {
       case '/mypage/statistics':
         setTitle('Estatísticas');
         break;
-      case '/mypage/post': 
+      case '/mypage/post':
         setTitle('Poste Sua Foto');
         break;
       default:
-        setTitle('Minha conta')
+        setTitle('Minha conta');
     }
-  
   }, [location]);
 
   return (

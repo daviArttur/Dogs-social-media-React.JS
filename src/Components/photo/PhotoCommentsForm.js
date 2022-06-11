@@ -1,8 +1,16 @@
 import React from 'react';
+
+// Styles
 import styles from './PhotoCommentsForm.module.scss';
-import useFetch from '../../Hooks/useFecth';
+
+// Components
 import { ReactComponent as Send } from '../../Assets/enviar.svg';
+
+// APi
 import { COMMENT_POST } from '../../api';
+
+// Hooks
+import useFetch from '../../Hooks/useFecth';
 
 const PhotoCommentsForm = ({ photoAndComment, token, setCommentReload }) => {
   const [comment, setComment] = React.useState('');

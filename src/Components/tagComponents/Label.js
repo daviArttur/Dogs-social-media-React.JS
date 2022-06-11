@@ -1,5 +1,9 @@
 import React from 'react';
+
+// Styles
 import styles from'./Label.module.scss'
+
+// Prop-Types
 import PropTypes from 'prop-types';
 
 const Label = ({ forType, children}) => {

@@ -1,5 +1,9 @@
 import React from 'react';
+
+// Styles
 import styles from './PhotoComment.module.scss';
+
+// Component
 import PhotoCommentAuthorization from './PhotoCommentAuthorization';
 
 const PhotoComment = ({ data }) => {

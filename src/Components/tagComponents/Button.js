@@ -1,5 +1,9 @@
 import React from 'react';
+
+// Styles
 import styles from'./Button.module.scss';
+
+// Prop-Types
 import PropTypes from 'prop-types';
 
 const Button = ({ paramOnClick, loading, children, style, disabled }) => {

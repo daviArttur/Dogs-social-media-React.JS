@@ -1,5 +1,9 @@
 import React from 'react'
+
+// Styles
 import styles from './Footer.module.scss';
+
+// Components
 import { ReactComponent as Dogs } from '../Assets/dogs-footer.svg'
 
 const Footer = () => {

@@ -1,7 +1,15 @@
 import React from 'react';
-import { UserContext } from '../../UserContext';
-import PhotoCommentsForm from './PhotoCommentsForm';
 
+
+
+// Router
+// Helper
+// Components
+import PhotoCommentsForm from './PhotoCommentsForm';
+// APi
+// Context Api
+import { UserContext } from '../../UserContext';
+// Hooks
 
 const PhotoCommentAuthorization = ({ data, setCommentReload }) => {
   const { login } = React.useContext(UserContext);

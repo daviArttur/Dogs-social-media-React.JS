@@ -1,10 +1,19 @@
 import React from 'react';
-import useFetch from '../../Hooks/useFecth';
-import { PHOTO_DELETE } from '../../api';
-import { UserContext } from '../../UserContext';
-import styles from './PhotoDelete.module.scss';
-import { Link, useParams } from 'react-router-dom';
 
+// Styles
+import styles from './PhotoDelete.module.scss';
+
+// Router
+import { Link } from 'react-router-dom';
+
+// APi
+import { PHOTO_DELETE } from '../../api';
+
+// Context Api
+import { UserContext } from '../../UserContext';
+
+// Hooks
+import useFetch from '../../Hooks/useFecth';
 
 const PhotoDelete = ({ id, author }) => {
   const { data } = React.useContext(UserContext);
@@ -12,7 +21,7 @@ const PhotoDelete = ({ id, author }) => {
 
   if (id && author) {
     const token = window.localStorage.getItem('token');
-    const navigateToPerfil = `https://dogs.origamid.dev/perfil/${author}`
+    const navigateToPerfil = `https://dogs.origamid.dev/perfil/${author}`;
     async function handleClick() {
       const confirmUser = window.confirm(
         'Tem certeza que deseja apagar essa foto?',
@@ -27,14 +36,19 @@ const PhotoDelete = ({ id, author }) => {
       }
     }
 
-    return (
-      data && author === data.username ? (
-        <button type="button" onClick={handleClick} className={styles.button}>
-          Deletar
-        </button>
-      ) : (
-        <Link to={`/user/${author}`} className={styles.link} style={{color: 'rgb(51,51,51)'}} href={navigateToPerfil} >@{author}</Link>
-      )
+    return data && author === data.username ? (
+      <button type="button" onClick={handleClick} className={styles.button}>
+        Deletar
+      </button>
+    ) : (
+      <Link
+        to={`/user/${author}`}
+        className={styles.link}
+        style={{ color: 'rgb(51,51,51)' }}
+        href={navigateToPerfil}
+      >
+        @{author}
+      </Link>
     );
   }
 };

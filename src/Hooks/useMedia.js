@@ -6,14 +6,14 @@ const useMedia = (value) => {
   React.useEffect(() => {
     function calcMatches() {
       const { matches } = window.matchMedia(value);
-      setMedia(matches)
+      setMedia(matches);
     }
     calcMatches();
     window.addEventListener('resize', calcMatches);
     return () => {
-      window.removeEventListener('resize', calcMatches)
-    }
-  }, [value])
+      window.removeEventListener('resize', calcMatches);
+    };
+  }, [value]);
 
   return media;
 };

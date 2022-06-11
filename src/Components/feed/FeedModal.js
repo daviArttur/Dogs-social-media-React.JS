@@ -1,12 +1,22 @@
 import React from 'react';
-import useFetch from '../../Hooks/useFecth';
+
+// Api
 import { PHOTO_GET } from '../../api';
+
+// Styles
 import styles from './FeedModal.module.scss';
-import Loading from '.././helper/Loading';
+
+// Router
 import { ReactComponent as Views } from '../../Assets/visualizacao-black.svg';
+import { Link } from 'react-router-dom';
+
+// Components
+import Loading from '.././helper/Loading';
 import PhotoComment from '../photo/PhotoComment';
 import PhotoDelete from '../photo/PhotoDelete';
-import { Link } from 'react-router-dom';
+
+// Hooks
+import useFetch from '../../Hooks/useFecth';
 
 const FeedModal = ({ photoSelect, setPhotoSelect }) => {
   const { data, loading, request } = useFetch();
@@ -23,6 +33,7 @@ const FeedModal = ({ photoSelect, setPhotoSelect }) => {
   }
 
   if (loading) return <Loading />;
+
   if (data)
     return (
       <div className={styles.container} onClick={handleOutsideClick}>
@@ -53,7 +64,7 @@ const FeedModal = ({ photoSelect, setPhotoSelect }) => {
                 </ul>
               </div>
             </section>
-            
+
             <section className={styles.containerComment}>
               <PhotoComment data={data} />
             </section>

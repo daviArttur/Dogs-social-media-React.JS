@@ -1,5 +1,9 @@
 import React from 'react';
+
+// Context Api
 import { UserContext } from '../../UserContext';
+
+// Router
 import { Navigate } from 'react-router-dom';
 
 const ProtectedAccess = ({ children }) => {

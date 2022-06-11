@@ -1,15 +1,24 @@
 import React from 'react';
+
+// Victory
 import { VictoryPie, VictoryChart, VictoryBar } from 'victory';
+
+// Api
 import { PHOTOS_GET } from '../../api';
+
+// Hooks
 import useFetch from '../../Hooks/useFecth';
-import { UserContext } from '../../UserContext';
+
+// Helper
 import Loading from '.././helper/Loading';
+
+// Styles
 import styles from './UserStats.module.scss';
 
 const UserStats = ({ user }) => {
-  const { data, loading, error, request } = useFetch();
+  const { loading, request } = useFetch();
   const [photos, setPhotos] = React.useState(null);
-  const [views, setViews] = React.useState([0])
+  const [views, setViews] = React.useState([0]);
 
   React.useEffect(() => {
     async function getPhotos() {
@@ -20,15 +29,17 @@ const UserStats = ({ user }) => {
       });
       const { json } = await request(url, endpoint);
 
-      setPhotos(  
+      setPhotos(
         json.map((photo) => {
           return { x: photo.title, y: Number(photo.acessos) };
         }),
       );
-      setViews(json.map(( {acessos}) => Number(acessos)).reduce((a, b) => a + b))
+      setViews(
+        json.map(({ acessos }) => Number(acessos)).reduce((a, b) => a + b),
+      );
     }
     getPhotos();
-  }, [request, user]); 
+  }, [request, user]);
 
   if (loading) return <Loading />;
   if (photos)

@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Styles
 import stylesGlobal from '../../App.module.scss';
 import styles from './NotFound.module.scss';
 

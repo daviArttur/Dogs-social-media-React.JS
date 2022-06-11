@@ -1,17 +1,28 @@
-import React from 'react'
-import styles from './PhotoContent.module.scss'
-import PhotoDelete from './PhotoDelete'
-import useFetch from '../../Hooks/useFecth'
-import { PHOTO_GET } from '../../api'
-import { Link } from 'react-router-dom'
-import Error from '../helper/Error'
-import PhotoComment from './PhotoComment'
+import React from 'react';
+
+// Styles
+import styles from './PhotoContent.module.scss';
+
+// Router
+import { Link } from 'react-router-dom';
+
+// Helper
+import Loading from '../helper/Loading';
+import Error from '../helper/Error';
+
+// Components
 import { ReactComponent as Views } from '../../Assets/visualizacao-black.svg';
-import Loading from '../helper/Loading'
+import PhotoComment from './PhotoComment';
+import PhotoDelete from './PhotoDelete';
 
+// APi
+import { PHOTO_GET } from '../../api';
 
-const PhotoContent = ({id, single}) => {
-  const { data, error,  loading, request } = useFetch();
+// Hooks
+import useFetch from '../../Hooks/useFecth';
+
+const PhotoContent = ({ id, single }) => {
+  const { data, error, loading, request } = useFetch();
   React.useEffect(() => {
     async function callPhoto() {
       const { url, options } = PHOTO_GET(id);
@@ -20,11 +31,11 @@ const PhotoContent = ({id, single}) => {
     callPhoto();
   }, [request, id]);
 
-
-  if (loading) return <Loading />
-  if (error) return <Error />
-  if (data) return (
-    <div className={`${styles.container} ${single ? styles.single : ''}`}>
+  if (loading) return <Loading />;
+  if (error) return <Error />;
+  if (data)
+    return (
+      <div className={`${styles.container} ${single ? styles.single : ''}`}>
         <section className={styles.containerData}>
           <img src={data.photo.src} alt="" className={styles.img} />
 
@@ -59,7 +70,7 @@ const PhotoContent = ({id, single}) => {
           </div>
         </section>
       </div>
-  )
-}
+    );
+};
 
-export default PhotoContent
+export default PhotoContent;

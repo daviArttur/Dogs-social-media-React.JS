@@ -1,14 +1,26 @@
 import React from 'react';
+
+// Api
+import { PASSWORD_RESET } from '../../api';
+
+// Router
+import { useNavigate } from 'react-router-dom';
+
+// Helper
+import Error from '../helper/Error';
+
+// Components
 import Input from '../tagComponents/Input';
 import Button from '../tagComponents/Button';
+import Label from '../tagComponents/Label';
+
+// Styles
+import stylesGlobal from '../../App.module.scss';
+import styles from './LoginReset.module.scss';
+
+// Hooks
 import useForm from '../../Hooks/useForm';
 import useFetch from '../../Hooks/useFecth';
-import { PASSWORD_RESET } from '../../api';
-import Error from '../helper/Error';
-import { useNavigate } from 'react-router-dom';
-import Label from '../tagComponents/Label';
-import stylesGlobal from '../../App.module.scss';
-import styles from './LoginReset.module.scss'
 
 const LoginReset = () => {
   const [login, setLogin] = React.useState('');

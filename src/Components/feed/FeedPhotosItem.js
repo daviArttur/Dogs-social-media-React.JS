@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Styles
 import styles from './FeedPhotosItem.module.scss';
 
 const FeedPhotosItem = ({ photo, setPhotoSelect }) => {

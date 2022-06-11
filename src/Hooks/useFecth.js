@@ -18,9 +18,7 @@ const useFetch = () => {
       if (!response.current.ok) throw new Error(json.current.message);
     } catch (err) {
       setError(err.message);
-
-    } finally { 
-
+    } finally {
       setData(json.current);
       setLoading(false);
       return { response: response.current, json: json.current };

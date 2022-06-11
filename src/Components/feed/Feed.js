@@ -1,18 +1,20 @@
 import React from 'react';
+
+// Styles
+import styles from '../../App.module.scss';
+
+// Components
 import FeedModal from './FeedModal';
 import FeedPhotos from './FeedPhotos';
-import styles from '../../App.module.scss';
-import { UserContext } from '../../UserContext';
 
 const Feed = ({ user }) => {
-
-  const  { data } = React.useContext(UserContext);
   const [photoSelect, setPhotoSelect] = React.useState(null);
   const [pages, setPages] = React.useState([1]);
   const [infinite, setInfinite] = React.useState(true);
 
   React.useEffect(() => {
     let wait = false;
+
     function handleScroll() {
       if (infinite) {
         const height =
