@@ -66,7 +66,7 @@ const LoginForm = () => {
           >
             {loading ? 'Carregando...' : 'Entrar'}
           </Button>
-          <Error error={error}>{error}</Error>
+          <Error error={error}>{'Login ou senha inválidos'}</Error>
         </form>
       </section>
 
