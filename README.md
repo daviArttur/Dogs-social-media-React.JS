@@ -1,18 +1,22 @@
-# Olá
+# Fala dev 👊🤘
 
-## Nesse projeto aprendi os principais conceitos de uma aplicação React: (Hooks, React Rounter e estilização com CSS modules), como usar bibliotecas externas e novas funcionalidades do git.
+## Esse projeto foi criado para aplicar as principais funcionalidades da biblioteca React que aprendi durante meu curso.
 
-## Dentro do app temos diversas funções como cadastro de email, postagem de fotos e comentários, gráfico com insights e recuperação de senha
+### Esta é uma aplicação completa, contando com diversas funcionalidades:
+- Cadastro de usuário
+- Login
+- Recuperação de senha
+- Postar foto
+- Deletar foto
+- Comentar em fotos
+- Gráficos com insights
 
-### O Front-end foi desenvolvido por mim, o design e back-end foram feitos pela ORIGAMID...
+### Caso queira visualizar aplicação é so seguir o link
+- https://dogs-social-media-react-js.vercel.app/
 
-Para rodar o app na sua máquina: {\
-  git init\
-  git clone https://github.com/daviArttur/Dogs-social-media-React.JS \
-  selecionar o diretório com a aplicação utilizando 'cd' no terminal,\
-  "caso não consiga selecionar tente renomear o diretório"\
-  npm install\
-  npm start\
-}
-
-Falta algumas correções na estilização e importações.
+### "Como posso rodar a plicação na minha máquina?" É bem simples!!!
+#### Abra seu terminal e rode os seguindes comandos
+- git clone https://github.com/daviArttur/Dogs-social-media-React.JS.git
+- abra o diretório baixado
+- npm install
+- npm start
